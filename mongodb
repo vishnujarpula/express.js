@@ -1,0 +1,29 @@
+// productModel.js
+const mongoose = require('mongoose');
+
+// Define the product schema
+const productSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true, // Ensure title is required
+    },
+    price: {
+        type: Number,
+        required: true, // Ensure price is required
+    },
+    category: {
+        type: String,
+        required: true, // Ensure category is required
+    },
+    inStock: {
+        type: Boolean,
+        required: true, // Ensure inStock is required
+    }
+}, {
+    timestamps: true, // Adds createdAt and updatedAt timestamps
+});
+
+// Create the product model based on the schema
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
